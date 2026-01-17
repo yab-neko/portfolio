@@ -25,36 +25,44 @@ artItems.splice(20);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
     <Header />
-    <main class="flex flex-col justify-center">
-      <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
-        <h1 class="text-2xl md:text-5xl w-full">これはポートフォリオです！</h1>
-        <p class="w-full text-justify text-base md:text-lg">
-          Welcome to <strong>Art Void</strong> — a minimalistic theme for art portfolios and blogs. Showcase your creative work, share your artistic journey, and connect with fellow creators in a clean, elegant space designed for visual storytelling.
-        </p>
-      </div>
-      <div class="w-full flex flex-col items-center gap-2.5 px-4 lg:px-0 mt-6">
+  <main class="flex flex-col justify-center">
+           <div class="w-full flex flex-col items-center gap-2.5 px-4 lg:px-0 mt-6">
         <img
-          src="/placeholder-about.jpg"
-          alt="Artistic inspiration"
+          src="/namecard.png"
+          alt="FULKUHARA Miwa"
         />
-        
-        <p class="italic text-xs text-gray-600 dark:text-neutral-400">
-         Photo by <a href="https://unsplash.com/@kharaoke?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Khara Woods</a> on <a href="https://unsplash.com/photos/assorted-color-paint-brush-on-brown-wooden-table-top-KR84RpMCb0w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-        </p>
       </div>
+        <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
+          <p class="w-full text-justify text-base md:text-lg">現在サイトを改修作業中です。<br>ご不便をおかけしますがよろしくお願いいたします。</p>
+
+          <h2 class="text-2xl font-bold mt-2">制作実績</h2>
+          <p>準備中のため、以下のサイトをご覧ください。</p>
+          <ul class="list-disc pl-8">
+            <li><a href="https://iratsu.com/u1877/#sec_works" target="_blank">イラストレーターズ通信（フクハラミワ）</a></li>
+            <li><a href="https://i.fileweb.jp/fukuharamiwa" target="_blank">illustration file（フクハラミワ）</a></li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-2">お問い合わせ</h2>
+          <p>お問い合わせは上記のサイトのほか、本サイトのフォームからも送信いただけます。</p>
+          <ul class="list-disc pl-8">
+            <li><a href="/contact">contact</a></li>
+          </ul>
+        </div>
+
+<!--
       <div class="px-4 md:px-0 mt-10">
       <section class="mb-8">
         <h2 class="text-3xl font-bold mb-4">Most recent art</h2>
         <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {mediums.map(m => (
             <li>
-              <a href={slugify(m) === 'all' ? '/art' : `/art/${slugify(m)}`}
+              <a href={slugify(m) === 'all' ? '/illustration' : `/illustration/${slugify(m)}`}
                 class={`block p-3 rounded bg-gray-100 dark:bg-neutral-700 hover:bg-gray-200 dark:hover:bg-neutral-600 transition${selectedMedium === m ? ' ring-2 ring-blue-500' : ''}`}>
                 {m}
               </a>
@@ -63,9 +71,12 @@ artItems.splice(20);
         </ul>
       </section>
       <ArtGallery artItems={artItems} />
+      
     </div>
+
     <RecentPublications />
-        </main>
+-->
+     </main>
     <Footer />
   </body>
 </html>

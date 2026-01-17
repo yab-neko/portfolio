@@ -23,7 +23,7 @@ filteredArt.sort((a, b) => {
 });
 ---
 
-<html lang="en">
+<html lang="ja">
     <head>
         <BaseHead title="Art Gallery" description="Browse artworks by category and flair." />
     </head>
@@ -35,7 +35,7 @@ filteredArt.sort((a, b) => {
         <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
             {mediums.map(m => (
             <li>
-              <a href={slugify(m) === 'all' ? '/art' : `/art/${slugify(m)}`}
+              <a href={slugify(m) === 'all' ? '/illustration' : `/illustration/${slugify(m)}`}
                 class={`block p-3 rounded bg-gray-100 dark:bg-neutral-700 hover:bg-gray-200 dark:hover:bg-neutral-600 transition${selectedMedium === m ? ' ring-2 ring-blue-500' : ''}`}>
                 {m}
                 </a>

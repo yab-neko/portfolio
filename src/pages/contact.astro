@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+  title="Cotact"
+  description="イラストレーター フクハラミワへのお問い合わせはこちらから"
+  pubDate={new Date('January 17 2026')}
+>
+  <p>
+	お問い合わせ、制作ご依頼はこちらからどうぞ。内容を確認し、1〜2営業日を目処に返信いたします。 </p>
+  <p class="text-gray-400">Please use this form for inquiries and job requests. I will check the contents and reply to you within 1-2 business days.</p>
+  <h2 class="text-xl font-bold mt-10">ご依頼をご検討中の方へ</h2>
+<ul class="list-disc pl-8 mb-4">
+    <li>スケジュール、制作内容ならびに点数、ご予算など、分かる範囲で構いませんのでご記載ください</li>
+    <li>基本的に著作権譲渡のご依頼は受けておりません</li>
+    <li>トラブル防止のため、制作前には必ず契約書または発注書や確認書等書面にて双方依頼内容を確認の上制作を開始しております。ご協力の程お願いいたします</li>
+    <li>フクハラは免税業者です</li>
+  </ul>
+  <div class="p-2">
+  <iframe data-tally-src="https://tally.so/embed/3qWN85?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" title="お問い合わせフォーム"></iframe>
+  <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+  </div>
+</Layout>
