@@ -2,13 +2,13 @@
 const { artItems } = Astro.props;
 ---
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="art-gallery">
-  {artItems.map(art => (
+  {artItems.map(illustration => (
     <div class="relative group">
-      <img src={art.data.heroImage} alt={art.data.name} class="w-full h-auto object-contain rounded shadow-lg cursor-pointer art-image" loading="lazy" data-art={JSON.stringify(art.data)} />
+      <img src={illustration.data.heroImage} alt={illustration.data.name} class="w-full h-auto object-contain rounded shadow-lg cursor-pointer art-image" loading="lazy" data-art={JSON.stringify(illustration.data)} />
       <div class="mt-2">
-        <h2 class="text-xl font-semibold">{art.data.name}</h2>
-        <p class="text-sm text-gray-500">{art.data.medium} • {art.data.year}/{art.data.month}</p>
-        <p class="text-md font-semibold">{art.data.status}</p>
+        <h2 class="text-xl font-semibold">{illustration.data.name}</h2>
+        <p class="text-sm text-gray-500">{illustration.data.media} • {illustration.data.year}/{illustration.data.month}</p>
+        <p class="text-md font-semibold">{illustration.data.status}</p>
  
       </div>
     </div>
@@ -20,13 +20,14 @@ const { artItems } = Astro.props;
     <div class="md:w-3/4 w-full p-4 flex items-center justify-center">
       <img id="softbox-img" src="" alt="" class="w-auto h-auto object-contain rounded" style="max-height: 90vh; max-width: 100%;" />
     </div>
-    <div class="md:w-1/4 w-full p-6 flex flex-col gap-2">
+    <div class="md:w-1/2 w-full p-6 flex flex-col gap-1">
       <button class="self-end text-2xl" id="softbox-close">&times;</button>
       <h2 class="text-2xl font-bold mb-2" id="softbox-name"></h2>
-      <p><strong>Medium:</strong> <span id="softbox-medium"></span></p>
-      <p><strong>Dimensions:</strong> <span id="softbox-dimensions"></span></p>
-      <p><strong>Date:</strong> <span id="softbox-date"></span></p>
-      <p><strong>Author:</strong> <span id="softbox-author"></span></p>
+      <p class="text-sm"><strong>media:</strong> <span id="softbox-media"></span></p>
+      <p class="text-sm"><strong>仕様:</strong> <span id="softbox-specs"></span></p>
+      <p class="text-sm"><strong>公開日:</strong> <span id="softbox-date"></span></p>
+      <p class="text-sm"><strong>制作点数・期間:</strong> <span id="softbox-overview"></span></p>
+      <p class="text-sm"><strong>クライアント:</strong> <span id="softbox-client"></span></p>
       <p id="softbox-status" class="font-semibold"></p>
       <p class="mt-4" id="softbox-text"></p>
     </div>
@@ -40,10 +41,11 @@ const { artItems } = Astro.props;
     const closeBtn = document.getElementById('softbox-close');
     const img = document.getElementById('softbox-img');
     const name = document.getElementById('softbox-name');
-    const medium = document.getElementById('softbox-medium');
-    const dimensions = document.getElementById('softbox-dimensions');
+    const media = document.getElementById('softbox-media');
+    const overview = document.getElementById('softbox-overview');
+    const specs = document.getElementById('softbox-specs');
     const date = document.getElementById('softbox-date');
-    const author = document.getElementById('softbox-author');
+    const client = document.getElementById('softbox-client');
     const text = document.getElementById('softbox-text');
     const status = document.getElementById('softbox-status');
 
@@ -53,10 +55,11 @@ const { artItems } = Astro.props;
         img.src = data.heroImage;
         img.alt = data.name;
         name.textContent = data.name;
-        medium.textContent = data.medium;
-        dimensions.textContent = data.dimensions;
+        media.textContent = data.media;
+        overview.textContent = data.overview;
+        specs.textContent = data.specs;
         date.textContent = `${data.year}/${data.month}`;
-        author.textContent = data.author;
+        client.textContent = data.client;
         text.textContent = data.text;
         if (status) {
           if (data.status) {

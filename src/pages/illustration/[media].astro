@@ -8,25 +8,25 @@ function slugify(str) {
   return str ? str.toLowerCase().replace(/\s+/g, '-') : '';
 }
 
-const artItems = await getCollection('art');
-const mediums = Array.from(new Set(artItems.map(a => a.data.medium).filter(Boolean)));
+const artItems = await getCollection('illustration');
+const mediums = Array.from(new Set(artItems.map(a => a.data.media).filter(Boolean)));
 mediums.unshift('All');
 
 export async function getStaticPaths() {
-  const items = await getCollection('art');
-  const mediumsSet = new Set(items.map(a => a.data.medium).filter(Boolean));
-  const paths = Array.from(mediumsSet).map(m => ({ params: { medium: m ? m.toLowerCase().replace(/\s+/g, '-') : '' } }));
+  const items = await getCollection('illustration');
+  const mediumsSet = new Set(items.map(a => a.data.media).filter(Boolean));
+  const paths = Array.from(mediumsSet).map(m => ({ params: { media: m ? m.toLowerCase().replace(/\s+/g, '-') : '' } }));
   return paths;
 }
 
-const { medium } = Astro.params;
-const selectedMedium = artItems.find(a => slugify(a.data.medium) === medium)?.data.medium || 'All';
+const { media } = Astro.params;
+const selectedMedium = artItems.find(a => slugify(a.data.media) === media)?.data.media || 'All';
 
 const filteredArt = selectedMedium === 'All'
   ? artItems
   : artItems.filter(a =>
-      a.data.medium &&
-      slugify(a.data.medium) === medium
+      a.data.media &&
+      slugify(a.data.media) === media
     );
 
 filteredArt.sort((a, b) => {
@@ -36,13 +36,13 @@ filteredArt.sort((a, b) => {
 ---
 <html lang="ja">
   <head>
-    <BaseHead title="Art Gallery" description="Browse artworks by category and flair." />
+    <BaseHead title="Illustration" description="カテゴリごとにイラストをご確認いただけます。" />
   </head>
   <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
     <Header />
     <main class="flex flex-col gap-8 px-4 md:px-0">
       <section class="mb-8">
-        <h1 class="text-3xl font-bold mb-4">Art Categories</h1>
+        <h1 class="text-3xl font-bold mb-4">Categories</h1>
         <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {mediums.map(m => (
             <li>

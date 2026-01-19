@@ -12,7 +12,7 @@ function slugify(str) {
   return str ? str.toLowerCase().replace(/\s+/g, '-') : '';
 }
 const selectedMedium = 'All';
-const mediums = Array.from(new Set(artItems.map(a => a.data.medium).filter(Boolean)));
+const mediums = Array.from(new Set(artItems.map(a => a.data.media).filter(Boolean)));
 mediums.unshift('All');
 
 artItems.sort((a, b) => {

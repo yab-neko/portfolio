@@ -4,13 +4,13 @@ import Footer from "../components/Footer.astro";
 import BaseHead from "../components/BaseHead.astro";
 import { getCollection } from 'astro:content';
 import ArtGallery from '../components/ArtGallery.astro';
-const artItems = await getCollection('art');
+const artItems = await getCollection('illustration');
 
-const mediums = Array.from(new Set(artItems.map(a => a.data.medium).filter(Boolean)));
+const mediums = Array.from(new Set(artItems.map(a => a.data.media).filter(Boolean)));
 mediums.unshift('All');
 
 const url = new URL(Astro.request.url, Astro.site);
-const mediumParam = url.searchParams.get('medium');
+const mediumParam = url.searchParams.get('media');
 const selectedMedium = mediumParam && mediumParam.trim() !== '' ? mediumParam : 'All';
 function slugify(str) {
   return str.toLowerCase().replace(/\s+/g, '-');
@@ -25,13 +25,13 @@ filteredArt.sort((a, b) => {
 
 <html lang="ja">
     <head>
-        <BaseHead title="Art Gallery" description="Browse artworks by category and flair." />
+        <BaseHead title="Illustration" description="Browse artworks by category and flair." />
     </head>
     <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
         <Header />
         <main class="flex flex-col gap-8 px-4 md:px-0">
         <section class="mb-8">
-        <h1 class="text-3xl font-bold mb-4">Art Categories</h1>
+        <h1 class="text-3xl font-bold mb-4">Categories</h1>
         <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
             {mediums.map(m => (
             <li>

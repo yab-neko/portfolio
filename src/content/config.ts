@@ -16,12 +16,12 @@ const art = defineCollection({
     type: 'content',
     schema: z.object({
         name: z.string(),
-        medium: z.string(),
-        dimensions: z.string(),
+        media: z.string(),
+        overview: z.string(),
         year: z.number(),
         month: z.number(),
         heroImage: z.string(),
-        author: z.string(),
+        client: z.string(),
         text: z.string(),
         status: z.string().optional(), // Sold/Available
     }),
