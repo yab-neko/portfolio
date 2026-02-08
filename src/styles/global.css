@@ -17,3 +17,13 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.art-image{
+    border:10px solid #fff
+}
+#softbox{
+    white-space: pre-wrap;
+}
+#softbox-img{
+    padding:20px
+}

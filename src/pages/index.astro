@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import RecentPublications from "../components/RecentPublications.astro";
 import { getCollection } from 'astro:content';
 import ArtGallery from '../components/ArtGallery.astro';
-const artItems = await getCollection('art');
+const artItems = await getCollection('illustration');
 
 function slugify(str) {
   return str ? str.toLowerCase().replace(/\s+/g, '-') : '';
@@ -32,12 +32,14 @@ artItems.splice(20);
   <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
     <Header />
   <main class="flex flex-col justify-center">
-           <div class="w-full flex flex-col items-center gap-2.5 px-4 lg:px-0 mt-6">
+     
+      <div class="w-full flex flex-col items-center gap-2.5 px-4 lg:px-0 mt-6">
         <img
           src="/namecard.png"
           alt="FULKUHARA Miwa"
         />
       </div>
+      <!-- 
         <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
           <p class="w-full text-justify text-base md:text-lg">現在サイトを改修作業中です。<br>ご不便をおかけしますがよろしくお願いいたします。</p>
 
@@ -54,8 +56,8 @@ artItems.splice(20);
             <li><a href="/contact">contact</a></li>
           </ul>
         </div>
+        -->
 
-<!--
       <div class="px-4 md:px-0 mt-10">
       <section class="mb-8">
         <h2 class="text-3xl font-bold mb-4">Most recent art</h2>
@@ -75,7 +77,7 @@ artItems.splice(20);
     </div>
 
     <RecentPublications />
--->
+
      </main>
     <Footer />
   </body>
