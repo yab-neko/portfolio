@@ -1,13 +1,13 @@
 ---
 const { artItems } = Astro.props;
 ---
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="art-gallery">
+<section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="art-gallery">
   {artItems.map(illustration => (
     <div class="relative group">
       <img src={illustration.data.heroImage} alt={illustration.data.name} class="w-full h-auto object-contain rounded shadow-lg cursor-pointer art-image" loading="lazy" data-art={JSON.stringify(illustration.data)} />
       <div class="mt-2">
-        <h2 class="text-l font-semibold">{illustration.data.name}</h2>
-        <p class="text-sm text-gray-500">{illustration.data.media} • {illustration.data.year}/{illustration.data.month}</p>
+        <h2 class="text-sm font-semibold">{illustration.data.name}</h2>
+        <p class="text-xs text-gray-500">{illustration.data.media} • {illustration.data.year}/{illustration.data.month}</p>
         <p class="text-md font-semibold">{illustration.data.status}</p>
  
       </div>
