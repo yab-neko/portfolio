@@ -1,6 +1,6 @@
 ---
 name: "Dream Navi 2025年10月号／特集「不可能を可能にする挑戦者 日本の研究」"
-media: "Magagine"
+media: "Magazine"
 specs: "A4判/120ページ"
 overview: "本文カット6点（4C）/約3週間"
 year: 2025
