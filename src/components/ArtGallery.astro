@@ -9,10 +9,11 @@ const { artItems } = Astro.props;
         <h2 class="text-sm font-semibold">{illustration.data.name}</h2>
         <p class="text-xs text-gray-500">{illustration.data.media} • {illustration.data.year}/{illustration.data.month}</p>
         <p class="text-md font-semibold">{illustration.data.status}</p>
- 
+        
       </div>
     </div>
   ))}
+  
 </section>
 
 <div id="softbox" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 py-4 md:py-0 hidden">
@@ -30,6 +31,9 @@ const { artItems } = Astro.props;
       <p class="text-sm"><strong>クライアント:</strong> <span id="softbox-client"></span></p>
       <p id="softbox-status" class="font-semibold"></p>
       <p class="mt-4" id="softbox-text"></p>
+      <div class="md:w-full p-6 flex flex-col gap-1">
+        <img id="softbox-subimg" src="" alt="" class="w-auto h-auto object-contain rounded" style="max-height: 100vh; max-width: 100%;" />
+      </div>
     </div>
   </div>
 </div>
@@ -40,6 +44,7 @@ const { artItems } = Astro.props;
     const softbox = document.getElementById('softbox');
     const closeBtn = document.getElementById('softbox-close');
     const img = document.getElementById('softbox-img');
+    const subimg = document.getElementById('softbox-subimg');
     const name = document.getElementById('softbox-name');
     const media = document.getElementById('softbox-media');
     const overview = document.getElementById('softbox-overview');
@@ -48,12 +53,12 @@ const { artItems } = Astro.props;
     const client = document.getElementById('softbox-client');
     const text = document.getElementById('softbox-text');
     const status = document.getElementById('softbox-status');
-
     images.forEach(image => {
       image.onclick = () => {
         const data = JSON.parse(image.getAttribute('data-art'));
         img.src = data.heroImage;
         img.alt = data.name;
+        subimg.src = data.subImage;
         name.textContent = data.name;
         media.textContent = data.media;
         overview.textContent = data.overview;
